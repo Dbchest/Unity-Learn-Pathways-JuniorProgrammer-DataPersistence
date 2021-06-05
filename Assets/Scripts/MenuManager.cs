@@ -1,8 +1,12 @@
-using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.SceneManagement;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
-public class StartBehaviour : MonoBehaviour
+using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+
+public class MenuManager : MonoBehaviour
 {
     [SerializeField]
     private InputField username;
@@ -20,5 +24,15 @@ public class StartBehaviour : MonoBehaviour
     public void LoadMainScene()
     {
         SceneManager.LoadScene("main");
+    }
+
+    public void Quit()
+    {
+
+#if UNITY_EDITOR
+        EditorApplication.ExitPlaymode();
+#endif
+
+        Application.Quit();
     }
 }
