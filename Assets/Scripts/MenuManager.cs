@@ -1,3 +1,5 @@
+using System.IO;
+
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -34,5 +36,21 @@ public class MenuManager : MonoBehaviour
 #endif
 
         Application.Quit();
+    }
+
+    private void Start()
+    {
+        Load();
+    }
+
+    private void Load()
+    {
+        var directory = Application.persistentDataPath;
+        var path = string.Format("{0}/savefile.dat", directory);
+
+        if (File.Exists(path))
+        {
+            // code
+        }
     }
 }
