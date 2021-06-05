@@ -1,5 +1,5 @@
 [System.Serializable]
-public class UserData
+public class Data
 {
     public string name;
     public int score;
